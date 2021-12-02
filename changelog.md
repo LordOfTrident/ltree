@@ -7,4 +7,4 @@ All the versions and the changes they bring
 - `1.0.3`: Color changing baubles added
 - `1.0.5`: Falling snow
 - `1.0.6`: Snow bug fixes
-- `1.0.7`: New snow that falls now has a new X pos
+- `1.0.7`: Snow fix, command line parameters

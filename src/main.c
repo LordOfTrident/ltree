@@ -538,6 +538,7 @@ void main_loop(void) {
 };
 
 int main(int argc, const char *argv[]) {
+	bool start = true;
 	for (usize i = 1; i < argc; ++ i) {
 		if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--version") == 0) {
 			printf(
@@ -546,8 +547,23 @@ int main(int argc, const char *argv[]) {
 				VERSION_MINOR,
 				VERSION_PATCH
 			);
+			start = false;
+		} else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
+			printf(
+				"Usage: app [options]\n"
+				"Options:\n"
+				"    -h, --help     Show the usage\n"
+				"    -v, --version  Show the current version\n"
+			);
+			start = false;
+		} else {
+			printf("Invalid parameter '%s' :(\nuse -h to see the usage\n", argv[i]);
+			return 0;
 		};
 	};
+
+	if (!start)
+		return 0;
 
 	init();
 	main_loop();
