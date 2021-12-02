@@ -1,13 +1,17 @@
 /*
  *  ltree - Merry christmas 2021 :)
- *  Version 1.0.6
+ *  Version 1.0.7
  *  Github: https://github.com/LordOfTrident/ltree
  */
 
+#include <stdio.h> // printf, fprintf, fflush
 #include <stdlib.h> // malloc, realloc, free, rand
 #include <unistd.h> // usleep
 #include <time.h> // usleep
+#include <string.h> // strcmp
+
 #include <ncurses.h> // Terminal i/o
+
 #include <stdbool.h> // bool, true, false
 #include <stdint.h> // uint8_t, uint16_t, uint32_t, uint64_t,
                     // int8_t, int16_t, int32_t, int64_t
@@ -33,8 +37,8 @@ typedef s16 sti; // i made it 16 bit because i doubt anyones terminal
 typedef u8 color;
 
 #define VERSION_MAJOR 1
-#define VERSION_MINOR 2
-#define VERSION_PATCH 4
+#define VERSION_MINOR 0
+#define VERSION_PATCH 7
 
 #define TREE_WIDTH  23
 #define TREE_HEIGHT 14
@@ -409,9 +413,10 @@ void flakes_resize(t_flakes *p_flakes, uti p_size_x, uti p_size_y) {
 void flakes_draw(t_flakes *p_flakes, t_scr *p_scr) {
 	p_scr->clr = CLRID_WHITE;
 	for (usize i = 0; i < flakes.len; ++ i) {
-		if (tick % 100 == 0 && ++ flakes.buf[i].y >= p_scr->size_y)
+		if (tick % 100 == 0 && ++ flakes.buf[i].y >= p_scr->size_y) {
 			flakes.buf[i].y = -1;
-		else
+			flakes.buf[i].x = rand() % p_scr->size_x;
+		} else
 			scr_setcharat(p_scr, '*', flakes.buf[i].x, flakes.buf[i].y);
 	};
 };
@@ -532,7 +537,18 @@ void main_loop(void) {
 	};
 };
 
-int main(void) {
+int main(int argc, const char *argv[]) {
+	for (usize i = 1; i < argc; ++ i) {
+		if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--version") == 0) {
+			printf(
+				"ltree version %i.%i.%i\n",
+				VERSION_MAJOR,
+				VERSION_MINOR,
+				VERSION_PATCH
+			);
+		};
+	};
+
 	init();
 	main_loop();
 	finish();
