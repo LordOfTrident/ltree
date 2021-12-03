@@ -1,6 +1,6 @@
 <p align="center">
 	<img width="100%" src="assets/deco.png"/>
-	<h1 align="center">ltree</h2>
+	<img width="150px" src="assets/logo.png"/>
 	<p align="center">Merry christmas 2021 :)</p>
 </p>
 <p align="center">
