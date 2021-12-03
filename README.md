@@ -1,7 +1,8 @@
 <p align="center">
 	<img width="100%" src="assets/deco.png"/>
 	<img width="150px" src="assets/logo.png"/>
-	<p align="center">Merry christmas 2021 :)</p>
+	<hr>
+	<p align="center">A terminal christmas tree made in C, merry christmas!</p>
 </p>
 <p align="center">
 	<a href="./LICENSE">
