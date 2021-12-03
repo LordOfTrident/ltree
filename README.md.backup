@@ -1,7 +1,6 @@
 <p align="center">
 	<img width="100%" src="assets/deco.png"/>
 	<img width="150px" src="assets/logo.png"/>
-	<hr>
 	<p align="center">A terminal christmas tree made in C, merry christmas!</p>
 </p>
 <p align="center">
@@ -16,6 +15,7 @@
 	</a>
 	<br><br><br>
 	<img width="500px" src="assets/img.png"/>
+	<hr>
 </p>
 
 Time flies fast, the year is coming to an end. Merry christmas to everyone! :)
